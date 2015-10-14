@@ -50,7 +50,7 @@ public class ApplicationMissilZombies {
                 System.out.println("Enter x coordinate of the missile " + (i + 1));
                 Integer missileCoordinateX = sc.nextInt();
 
-                if (missileCoordinateX > widthArea && missileCoordinateX >= 1) {
+                if (missileCoordinateX > widthArea || missileCoordinateX < 1) {
                     validateCoordinate = false;
                     break;
                 }
@@ -58,7 +58,7 @@ public class ApplicationMissilZombies {
                 System.out.println("Enter y coordinate of the missile " + (i + 1));
                 Integer missileCoordinateY = sc.nextInt();
 
-                if (missileCoordinateY > heightArea && missileCoordinateY >= 1) {
+                if (missileCoordinateY > heightArea || missileCoordinateY < 1) {
                     validateCoordinate = false;
                     break;
                 }
