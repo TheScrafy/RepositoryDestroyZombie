@@ -81,33 +81,37 @@ public class ApplicationMissilZombies {
         BufferedReader bufferReader = null;
         try {
             file = new File(fileAddress);
-            fileReader = new FileReader(file);
-            bufferReader = new BufferedReader(fileReader);
+            if (file.exists()) {
+                fileReader = new FileReader(file);
+                bufferReader = new BufferedReader(fileReader);
 
-            String line;
-            Boolean inicio = true;
+                String line;
+                Boolean inicio = true;
 
-            while ((line = bufferReader.readLine()) != null) {
-                String[] linesArray = line.split(" ");
-                if (inicio) {
-                    widthArea = Integer.valueOf(linesArray[0]);
-                    heightArea = Integer.valueOf(linesArray[1]);
-                    if (widthArea == heightArea) {
-                        validateArea = false;
-                        break;
+                while ((line = bufferReader.readLine()) != null) {
+                    String[] linesArray = line.split(" ");
+                    if (inicio) {
+                        widthArea = Integer.valueOf(linesArray[0]);
+                        heightArea = Integer.valueOf(linesArray[1]);
+                        if (widthArea == heightArea) {
+                            validateArea = false;
+                            break;
+                        }
+                        inicio = false;
+                    } else {
+                        Coordinate coordinate = new Coordinate();
+                        coordinate.setPosX(Integer.valueOf(linesArray[0]));
+                        coordinate.setPosY(Integer.valueOf(linesArray[1]));
+                        coordinate.setCantZombie(Integer.valueOf(linesArray[2]));
+                        if (coordinate.getCantZombie() == 0) {
+                            validateArea = false;
+                            break;
+                        }
+                        listCoordinate.add(coordinate);
                     }
-                    inicio = false;
-                } else {
-                    Coordinate coordinate = new Coordinate();
-                    coordinate.setPosX(Integer.valueOf(linesArray[0]));
-                    coordinate.setPosY(Integer.valueOf(linesArray[1]));
-                    coordinate.setCantZombie(Integer.valueOf(linesArray[2]));
-                    if (coordinate.getCantZombie() == 0) {
-                        validateArea = false;
-                        break;
-                    }
-                    listCoordinate.add(coordinate);
                 }
+            } else {
+                validateArea = false;
             }
         } catch (Exception e) {
             e.printStackTrace();
