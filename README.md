@@ -5,7 +5,7 @@ Esta aplicacion esta desarrollada con el IDE Netbeans, esta compuesto de dos cla
  * Coordinate.java
  * ApplicationMissilZombies.java (Main)
  
-El programa solicita inicialmente un archivo de texto con las especificaciones del PDF, luego realiza las validaciones correspondientes y procede a realizar la funcionalidad de calcular la cantidad de zombies muertos.
+El programa solicita inicialmente un archivo de texto con las especificaciones del PDF, luego realiza las validaciones correspondientes con excepcion de la solicitud de coordenadas de los tres misiles estos deben ser numericos, a continuacion procede a realizar la funcionalidad de calcular la cantidad de zombies muertos.
 
 Para el versionamiento se utilizo el programa GitHub para windows.
 
