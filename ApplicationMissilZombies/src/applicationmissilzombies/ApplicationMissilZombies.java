@@ -104,7 +104,7 @@ public class ApplicationMissilZombies {
                         coordinate.setPosX(Integer.valueOf(linesArray[0]));
                         coordinate.setPosY(Integer.valueOf(linesArray[1]));
                         coordinate.setCantZombie(Integer.valueOf(linesArray[2]));
-                        if (coordinate.getCantZombie() == 0) {
+                        if (coordinate.getCantZombie() == 0 || coordinate.getPosX() > widthArea || coordinate.getPosY() < 1 || coordinate.getPosY() > heightArea || coordinate.getPosY() < 1) {
                             validateArea = false;
                             break;
                         }
