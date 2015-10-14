@@ -66,6 +66,7 @@ public class ApplicationMissilZombies {
             }
             if (!validateCoordinate) {
                 System.out.println("The values are invalid or exceed the area");
+                listCoordinateMissile.clear();
                 validateCoordinate = true;
             } else {
                 validateCoordinate = false;
